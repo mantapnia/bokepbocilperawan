@@ -84,23 +84,22 @@ export default async function Video({ params }: PageProps) {
     const file = data.result[0];
 	const jsonLd = {
         '@context': 'https://schema.org',
-        '@type': 'VideoObject',
+        '@type': 'WebPage',
         name: `Bokep ${file.title}`,
-        thumbnailUrl: file.splash_img,
+        image: file.splash_img,
         description: `Video Bokep ${file.title} di ${SITENAME} Video Bokep Indo Bocil Ngentot Jilbab Smp Mama Viral`,
-        url: `https://bokepbocilperawan.pages.dev/v/${file.filecode}`,
-        embedUrl: `https://doodstream.com/e/${file.filecode}`,
-        uploadDate: new Date(
+        url: `https://abgsquirt.pages.dev/v/${file.filecode}`,
+        datePublished: new Date(
             file.uploaded + ".000Z"
         ).toISOString(),
         publisher: {
             '@type': 'Organization',
             name: `${SITENAME}`,
-            logo: 'https://bokepbocilperawan.pages.dev/favicon.ico'},
+            logo: 'https://abgsquirt.pages.dev/favicon.ico'},
             author: {
                 '@type': 'Person',
                 name: 'admin',
-                url: 'https://bokepbocilperawan.pages.dev'
+                url: 'https://abgsquirt.pages.dev'
               }
         }
         const jsonLd2 = {
@@ -109,23 +108,33 @@ export default async function Video({ params }: PageProps) {
         headline: `Bokep ${file.title}`,
         image: file.splash_img,
         description: `Video Bokep ${file.title} di ${SITENAME} Video Bokep Indo Bocil Ngentot Jilbab Smp Mama Viral`,
-        url: `https://bokepbocilperawan.pages.dev/v/${file.filecode}`,
+        url: `https://bociltocil.pages.dev/v/${file.filecode}`,
         datePublished: new Date(
             file.uploaded + ".000Z"
         ).toISOString(),
         publisher: {
             '@type': 'Organization',
             name: `${SITENAME}`,
-            logo: 'https://bokepbocilperawan.pages.dev/favicon.ico'},
+            logo: 'https://bociltocil.pages.dev/favicon.ico'},
             author: {
                 '@type': 'Person',
                 name: 'admin',
-                url: 'https://bokepbocilperawan.pages.dev'
+                url: 'https://bociltocil.pages.dev'
               }
         }
         
     return (
-        <div className="grid col-span-full gap-4 md:gap-4 md:mx-10">
+        <div className="grid col-span-full gap-4 md:gap-4 md:mx-10" itemProp="video" itemScope itemType="http://schema.org/VideoObject">
+<meta itemProp="author" content="admin" />
+<meta itemProp="name" content={`Bokep ${file.title}`} />
+<meta itemProp="description" content={`Bokep ${file.title}`} />
+<meta itemProp="description" content={`Video Bokep ${file.title} di ${SITENAME} Video Bokep Indo Bocil Ngentot Jilbab Smp Mama Viral`} />
+<meta itemProp="duration" content={`${file.length}`} />
+<meta itemProp="thumbnailUrl" content={`${file.splash_img}`} />
+<meta itemProp="embedURL" content={`https://doodstream.com/e/${file.filecode}`} />
+<meta itemProp="uploadDate" content={`${new Date(
+            file.uploaded + ".000Z"
+        ).toISOString()}`} />
         <section>
         {/* Add JSON-LD to your page */}
         <script
